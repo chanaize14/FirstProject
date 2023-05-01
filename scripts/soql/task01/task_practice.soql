@@ -1,0 +1,117 @@
+
+//Write a SOQL SELECT statement to
+//retrieve the Id and Name fields for all Profile records
+//if Name is NightWatcher .
+
+//SELECT Id,Name
+//FROM profile
+//WHERE Name = 'NightWatcher'
+
+//Write a SOQL SELECT statement to
+//retrieve the Name and Profile Name fields for all User records
+//if Profile.Name is NightWatcher Or it Starts with System.
+
+//SELECT Name, profile.Name
+////FROM User
+//WHERE profile.Name ='NightWatcher' OR profile.Name LIKE 'System%'
+
+//## Task 3:
+
+//Write a SOQL SELECT statement to
+//retrieve the Name, RecordTypeId and RecordType.Name fields for all Boat 
+//records where the RecordType.Name contains boat.
+//SELECT Name, RecordTypeId, RecordType.Name
+// FROM Boat__c
+// WHERE RecordType.Name LIKE '%boat%'
+
+
+
+//## Task 4 
+//Write a SOQL SELECT statement to
+//retrieve the Name, CreatedBy.Name and Year_Built fields for all 
+//Boat records where the CreatedBy.Name is Jon Snow and Year_Built is Before LAST_YEAR.
+
+//SELECT Name, CreatedBy.Name, Year_Built__c
+//FROM Boat__c
+//WHERE CreatedBy.Name = 'Jon Snow'AND Year_Built__c < LAST_YEAR
+
+//## Task 5 
+//Write a SOQL SELECT statement to
+//retrieve the count of Boat records where the RecordType.Name is Speedboat.
+
+//SELECT COUNT(Id)
+//////FROM Boat__c
+//WHERE RecordType.Name = 'Speedboat'
+//AbbasMollayev — Today at 3:35 PM
+//Task 6
+//Write a SOQL SELECT statement to retrieve
+//the Name and Role.Name fields for all User records where the Role.Name contains Sale or CEO
+
+//SELECT Name, UserRole.Name
+//FROM User
+//WHERE UserRole.Name LIKE '%Sales%' OR UserRole.Name LIKE '%CEO%'
+//## Task 7:
+//Write a SOQL SELECT statement to retrieve
+//the Name and Role.Name fields for all User records
+// where the Role.Name contains Sale or CEO
+//SELECT Name, UserRole.Name
+// FROM User
+// WHERE UserRole.Name LIKE '%Sale%' OR UserRole.Name LIKE '%CEO%'
+
+
+//## Task 8:
+//Write a SOQL SELECT statement to retrieve
+//the Subject, ActivityDate, WhoId, Who.Name fields for all Task records where the WhoId not null
+
+//SELECT Subject, ActivityDate, WhoId, Who.Name
+//FROM  Task 
+//WHERE  WhoId != null
+
+//## Task 9:
+////Write a SOQL SELECT statement to retrieve
+//the Subject, Contact.Name, fields for all Case records where 
+  //- the Contact.Name is not null and
+  //- Subject contains Generator
+  //SELECT Subject, Contact.Name
+  //FROM Case
+  //WHERE Contact.Name !=null AND Subject LIKE '%Generator%' 
+
+ //## Task 10:
+//Write a SOQL SELECT statement to retrieve
+//the Account Name, Child Boat Names for all Account records, only return account with Boat
+
+//SELECT  Name, (SELECT Name  FROM Boats__r)
+//FROM Account
+//WHERE Id IN (SELECT Current_Owner__c FROM Boat__c )
+
+//## Task 11:
+//Write a SOQL SELECT statement to retrieve
+//the Account Name, Child Cases with Subject contains Generator,
+//  for all Account records, only return account with cases
+
+//SELECT Name, (SELECT Subject  FROM cases WHERE Subject LIKE '%Generator%')
+//FROM Account
+//WHERE Id IN(SELECT AccountId FROM case)
+
+//## Task 12: 
+//Write a SOQL SELECT statement to retrieve
+//the Account Name, Child Opportunity with StageName is Closed Won, 
+// for all Account records, only return those accounts with Closed Won Opportunities as child records
+ SELECT Name, (SELECT StageName FROM Opportunities WHERE StageName = 'Closed Won')
+ FROM Account
+WHERE Id in(SELECT AccountId FROM Opportunity WHERE StageName = 'Closed Won')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

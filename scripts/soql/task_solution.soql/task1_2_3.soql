@@ -1,0 +1,41 @@
+//Task Set SOQL 3
+//## Task 10: 
+// Write a SOQL query to retrieve the count of Case records 
+// where the Priority is High'.
+
+//SELECT  COUNT(Id)
+//FROM Case 
+//WHERE Priority = 'High'
+
+
+//## Task 11: 
+//Write a SOQL query to 
+//retrieve the Type and the count of Account records 
+//for each Type where the count of records is greater than 5.
+
+//SELECT  type, COUNT(Id)
+//FROM Account
+//GROUP BY type
+//HAVING  COUNT(Id)>5
+
+
+//## Task 1: 
+//Write a SOQL SELECT statement (Child to Parent) to 
+//retrieve the Name ,Account.Name and Email fields 
+//for all Contact records associated with an Account record 
+//where the Account.Name is equal to a Super Parent.
+
+//SELECT Name, Account.Name, Email
+//FROM Contact
+//WHERE Account.Name = 'Super Parent'
+
+//## Task 2: 
+//Write a SOQL SELECT statement (Parent to Child) to 
+//retrieve the Name and AnnualRevenue fields and all Child Contacts
+//for the record with name equal to a Super Parent.
+SELECT Name, AnnualRevenue, (SELECT Name FROM Contacts)
+FROM Account
+WHERE Name = 'Super Parent'
+
+
+

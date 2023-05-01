@@ -1,0 +1,68 @@
+//SET 3
+// Task 1: 
+//Write a SOQL query to retrieve the maximum Amount for all Opportunity records.
+//SELECT MAX(Amount) FROM Opportunity
+
+//Task 2:
+//Write a SOQL query to retrieve the minimum CreatedDate for all Case records.
+//SELECT MIN(CreatedDate) FROM Case
+
+//Task 3:
+//Write a SOQL query to retrieve the average NumberOfEmployees for all Account records
+// where the Industry is 'Technology'.
+//SELECT AVG(NumberOfEmployees) FROM Account WHERE Industry = 'Technology'
+
+//Task 4:
+//Write a SOQL query to retrieve the sum of Amount for all Opportunity records 
+//where the StageName is 'Closed Won'.
+//SELECT SUM(Amount) FROM Opportunity WHERE StageName = 'Closed Won'
+
+//Task 5:
+//Write a SOQL query to retrieve the maximum CreatedDate for all Account records
+// where the Type is 'Prospect'.
+//SELECT MAX(CreatedDate) FROM Account WHERE Type = 'Prospect'
+
+//Task 6:
+//Write a SOQL query to retrieve the average ExpectedRevenue for all Opportunity records
+// where the CloseDate is in the current year.
+//SELECT AVG(ExpectedRevenue) FROM Opportunity WHERE CloseDate = THIS_YEAR
+
+//Task 7:
+//Write a SOQL query to retrieve the sum of NumberOfEmployees for all Account records
+// where the Type is 'Customer' and the Industry is 'Finance'.
+//SELECT SUM(NumberOfEmployees) FROM Account WHERE TYPE LIKE 'Customer%' AND Industry = 'Finance'
+
+//Task 8:
+//Write a SOQL query to retrieve the minimum LastModifiedDate for all Lead records
+// where the Status is 'Open'.
+//SELECT MIN(LastModifiedDate) FROM Lead WHERE Status LIKE 'Open%'
+
+//Task 9:
+//Write a SOQL query to retrieve the average Amount for all Opportunity records
+// where the StageName is not equal to 'Closed Won'.
+//SELECT AVG(Amount) FROM Opportunity WHERE StageName != 'Closed Won'
+
+//Task 10:
+//Write a SOQL query to retrieve the count of Case records where the Priority is High'.
+//SELECT COUNT(Id) FROM Case WHERE Priority = 'High'
+
+//Task 11:
+//Write a SOQL query to 
+//retrieve the Type and the count of Account records 
+//for each Type where the count of records is greater than 5.
+//SELECT Type, COUNT(Id) FROM Account GROUP BY Type HAVING COUNT(Id)>5
+
+//Task 12:
+//Write a SOQL query to 
+//retrieve the Industry, the maximum AnnualRevenue, and the count of Account records 
+//for each Industry where the maximum AnnualRevenue is greater than 1000000.
+
+//SELECT  Industry, MAX(AnnualRevenue), COUNT(Id) FROM Account 
+//GROUP BY Industry HAVING MAX(AnnualRevenue)>1000000
+ 
+//Task 13:
+//Write a SOQL query to 
+//retrieve the LeadSource, the average NumberOfEmployees, and the count of Lead records 
+//for each LeadSource where the average NumberOfEmployees is greater than 50.
+SELECT LeadSource, AVG(NumberOfEmployees), COUNT(Id) FROM Lead
+ GROUP BY LeadSource HAVING AVG(NumberOfEmployees)>50

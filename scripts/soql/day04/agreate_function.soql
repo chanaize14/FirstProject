@@ -1,0 +1,43 @@
+//SELECT COUNT(Id), COUNT_DISTINCT(Name), SUM(Amount), MAX(Amount), MIN(Amount), AVG(Amount)
+//FROM Opportunity
+// Count the Opportunities In Closed Won Stage  
+//SELECT  COUNT(Id)
+//FROM Opportunity
+//WHERE StageName = 'Closed Won'
+
+
+// Get the Opportunity Count and Sum of Amount for each Stage
+// SELECT StageName, COUNT(Id), SUM(Amount)
+// FROM Opportunity
+// GROUP BY StageName
+
+// If you use aggregate function with any additional field in Select line
+// It must be Grouped by that field or it will not work 
+// Anytime you add any new field other than the field in group by , it will not work 
+// as long as it does not show up in group by field list 
+// Get the count of Leads of each LeadSource 
+//SELECT LeadSource, COUNT(Id)
+//FROM Lead
+//GROUP BY LeadSource
+
+
+// Get the count of Leads of each State 
+// only return the row if the count more than OR euqal to 2 
+
+//SELECT State, COUNT(Id)
+//FROM Lead
+//GROUP BY State
+//HAVING COUNT(Id) >= 2
+// Get the count of the Leads for each Status 
+// only return the rows if the count is less than 5
+//SELECT Status, COUNT(Id)
+//FROM Lead
+//GROUP BY Status
+//HAVING COUNT(ID) < 5
+
+// Get All the count of Account for each Rating (Hot, Cold Warm, NULL)
+SELECT Rating, Count(Id)
+FROM Account
+WHERE Rating != NULL
+GROUP BY Rating
+

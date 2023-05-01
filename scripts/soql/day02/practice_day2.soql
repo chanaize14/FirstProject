@@ -1,0 +1,117 @@
+// Feel free to use SOQL Building(by flipping the page)
+// to observe what's the correct Object name and fields names 
+
+// Get All the Profiles Id, Name fields 
+// if the profile name is 
+// System Administator, Standard User , Standard Platform User
+
+
+// Get All the Roles , Id, Name From Role Standard Object 
+
+//SELECT  Id, Name 
+//FROM profile
+//WHERE Name IN ('System Administrator', 'Standard User' , 'Standard Platform User')
+
+//SELECT   Id, Name, DeveloperName
+//FROM userRole 
+
+//SELECT Id, Name, DeveloperName
+//FROM RecordType
+
+////SELECT  Id, Author__c, Price__c, Description__c, Year__c
+////FROM Book__c
+//WHERE Description__c != NULL
+//OR Price__c != NULL 
+
+//SELECT FIELDS(ALL)
+//FROM Book__c
+//LIMIT 200
+
+
+//PARTIAL CONDITION , OR FUZZY SEARCH
+
+//RELATIONAL OPERATOR : > >= < <= != IN NOT IN
+
+//LIKE , % ( WILD CARD, it can represent 0 or more characters )
+//Get all contacts First Name and LastName
+//if FirstName starts with letter A
+
+//SELECT FirstName, LastName
+//FROM  Contact
+//WHERE FirstName LIKE 'A%'
+
+// Get all contacts First Name and LastName 
+// if FirstName starts with letter JO  
+
+//SELECT FirstName, LastName
+//FROM Contact
+//WHERE FirstName LIKE 'JO%'
+
+// Get all contacts First Name and LastName 
+// if FirstName contains letter A  
+// We can use LIKE '%A%'  
+// it matches  Alba, Game, Apex, Battery, Alberta
+//SELECT FirstName, LastName
+ //FROM Contact
+ //WHERE FirstName LIKE '%A%'
+
+ // Get all contacts First Name and LastName 
+// if FirstName end with letter A  
+// We can use LIKE '%A'  
+// it matches  Alba, Joshua, BA, PA, 12312A
+ //SELECT FirstName, LastName
+  // FROM Contact
+   //WHERE FirstName LIKE '%A'
+
+
+// Get all contacts First Name and LastName 
+// if FirstName starts with A and Ends with Y 
+// We can use LIKE 'A%Y'  
+// it matches  Andy, Albany, Ashley, Ay, Amy
+//SELECT FirstName, LastName
+// FROM Contact
+ //WHERE FirstName LIKE 'A%Y'
+
+// Get all contacts First Name and LastName 
+// if FirstName starts with A and Ends with Y 
+// AND has exactly 4 Charcters (meaning there are 2 character in between A and Y)
+
+// We can use LIKE 'A__Y'  
+// it matches  Andy, Anny, Abcy, APZy, A12y,aXYy
+//SELECT FirstName, LastName
+ //FROM Contact
+ //WHERE FirstName LIKE 'A__Y'
+
+ //Get All the contact created date 
+// Get All the contacts created Today
+// if you use actual date 
+// SOQL require Date along with the time exatcly in this format 
+// 2023-03-23T12:46:08Z
+// However we can use all Date literals available in SOQL to make it easy
+//https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm
+// TODAY , YESTERDAY, TOMORROW 
+// THIS_WEEK, LAST_WEEK,NEXT_WEEK
+// THIS_MONTH, LAST_MONTH, NEXT_MONTH
+// LAST_90_DAYS , NEXT_90_DAYS , 
+// LAST_N_DAYS:n, NEXT_N_DAYS:n      N_DAYS_AGO:n ,
+//  NEXT_N_WEEKS:n , LAST_N_WEEKS:n
+// AND MORE 
+
+
+//SELECT FirstName, LastName
+////FROM Contact 
+//WHERE CreatedDate = YESTERDAY 
+
+
+// Get all the opportunity created past 2 weeks 
+ //SELECT Name, CloseDate, StageName, CreatedDate
+// FROM Opportunity
+ ////WHERE CreatedDate = LAST_N_WEEKS:2
+
+
+// Get all the opportunity ClosedDate is Last 90 Days 
+SELECT Name, CloseDate, StageName
+ FROM Opportunity
+ WHERE CloseDate = LAST_90_DAYS
+ ORDER BY CloseDate Desc
+ 

@@ -1,0 +1,38 @@
+//## Task 6:
+
+//Write a SOQL SELECT statement to retrieve
+//the Name and Role.Name fields for all User 
+//records where the Role.Name contains Sale or CEO
+
+//SELECT Name, UserRole.Name
+//FROM User
+//WHERE UserRole.Name LIKE '%Sale%'
+//OR UserRole.Name LIKE '%CEO%'
+
+// ## Task 8:
+//Write a SOQL SELECT statement to retrieve
+//the `Subject`, `ActivityDate`, `WhoId`, `Who.Name` fields 
+//for all **Task** records where the `WhoId` not null
+
+//SELECT  Subject, ActivityDate, WhoId, Who.Name
+//FROM Task
+ //WHERE WhoId != NULL 
+
+ //Write a SOQL SELECT statement to retrieve
+//the Subject, Contact.Name, fields for all Case records where
+// the Contact.Name is not null and
+// Subject contains Generator
+
+//SELECT  Subject, Contact.Name
+//FROM CASE 
+//WHERE Contact.Name != NULL
+//AND Subject LIKE '%Generator%'
+
+//## Task 11:
+//Write a SOQL SELECT statement to retrieve
+// the `Account Name`, `Child Cases` with `Subject` contains `Generator`,  //for all **Account** records, only return account with cases
+ 
+SELECT Name, (SELECT Subject FROM Cases WHERE Subject LIKE '%Generator%')
+ FROM Account
+ WHERE Id IN (SELECT AccountId from Case)
+
