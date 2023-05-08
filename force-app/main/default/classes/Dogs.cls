@@ -5,7 +5,7 @@ Call constructor from Animal using which Method?
 Add breed 
 
 Add override makeNoise method 
-Override abstract method getInfor(){*/
+Override abstract method getInfor(){*////////
 
 
 
